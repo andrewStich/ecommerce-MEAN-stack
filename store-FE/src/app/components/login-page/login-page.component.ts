@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { User } from 'src/app/models/user.model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -8,23 +8,47 @@ import { User } from 'src/app/models/user.model';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-  uname: string;
-  pass: string;
-  user: User;
-  public loginForm: FormGroup;
+  loginForm: FormGroup;
+  loading = false;
+  submitted = false;
 
-  constructor(private formBuilder: FormBuilder) {
-    this.loginForm = new FormGroup({
-      uname: new FormControl(''),
-      pass: new FormControl('')
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private accountService: AccountService
+  ) { }
+
+  ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      uname: ['', Validators.required],
+      pass: ['', Validators.required]
     });
   }
 
-  ngOnInit(): void {
+  get f() {
+    return this.loginForm.controls;
   }
 
-  public onSubmit(): void {
-    console.log(this.loginForm.value);
-  }
+  onSubmit() {
+    this.submitted = true;
 
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+    this.loading = true;
+    this.accountService.login(this.f.username.value, this.f.password.value)
+      .pipe(first())
+      .subscribe({
+        next: () => {
+          const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+          this.router.navigateByUrl(returnUrl)
+        },
+        error: error => {
+          this.alertService.error(error);
+          this.loading = false;
+        }
+      });
+  }
 }

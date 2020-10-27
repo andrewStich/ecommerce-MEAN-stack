@@ -7,6 +7,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { UserPageComponent } from './components/user-page/user-page.component';
     NavBarComponent,
     LoginPageComponent,
     HomePageComponent,
-    UserPageComponent
+    UserPageComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
