@@ -1,1 +1,5 @@
-<p>login-page works!</p>
+<form [formGroup]="loginForm">
+  <input formControlName="uname" type="text" placeholder="Enter Username">
+  <input formControlName="pass" type="password" placeholder="Enter Password">
+  <input type="button" (click)="onSubmit()" value="Submit">
+</form>

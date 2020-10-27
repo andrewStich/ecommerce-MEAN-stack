@@ -1,0 +1,14 @@
+input.sub {
+  background-color: lightblue;
+  border-radius: 25%;
+  width: 8vw;
+  height: 4vw;
+}
+
+h4 {
+  color: coral;
+}
+
+input {
+  height: 4vw;
+}
