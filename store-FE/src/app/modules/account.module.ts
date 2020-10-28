@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AccountRoutingModule } from './account-routing.module';
 import { LoginPageComponent } from '../components/login-page/login-page.component';
+import { LayoutComponent } from '../components/layout/layout.component';
 
 @NgModule({
   imports: [
