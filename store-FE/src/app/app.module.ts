@@ -9,6 +9,8 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { SavePageComponent } from './components/save-page/save-page.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { UsersListComponent } from './components/users-list/users-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { SavePageComponent } from './components/save-page/save-page.component';
     HomePageComponent,
     UserPageComponent,
     AlertComponent,
-    SavePageComponent
+    SavePageComponent,
+    LayoutComponent,
+    UsersListComponent
   ],
   imports: [
     BrowserModule,
