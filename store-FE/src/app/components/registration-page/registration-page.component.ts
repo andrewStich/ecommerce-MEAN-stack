@@ -6,12 +6,11 @@ import { AccountService } from 'src/app/services/account/account.service';
 import { AlertService } from 'src/app/services/alert/alert.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-registration-page',
+  templateUrl: './registration-page.component.html',
+  styleUrls: ['./registration-page.component.css']
 })
-export class RegisterComponent implements OnInit {
-
+export class RegistrationPageComponent implements OnInit {
   form: FormGroup;
   loading = false;
   submitted = false;
