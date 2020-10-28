@@ -6,12 +6,13 @@ import { AccountService } from 'src/app/services/account/account.service';
 import { AlertService } from 'src/app/services/alert/alert.service';
 
 @Component({
-  selector: 'app-login-page',
-  templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class LoginPageComponent implements OnInit {
-  loginForm: FormGroup;
+export class RegisterComponent implements OnInit {
+
+  form: FormGroup;
   loading = false;
   submitted = false;
 
@@ -24,31 +25,35 @@ export class LoginPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
-      uname: ['', Validators.required],
-      pass: ['', Validators.required]
+    this.form = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      username: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
   // tslint:disable-next-line: typedef
-  get f() {
-    return this.loginForm.controls;
-  }
+  get f() { return this.form.controls; }
 
   onSubmit(): void {
     this.submitted = true;
 
-    if (this.loginForm.invalid) {
+    // reset alerts on submit
+    this.alertService.clear();
+
+    // stop here if form is invalid
+    if (this.form.invalid) {
       return;
     }
 
     this.loading = true;
-    this.accountService.login(this.f.username.value, this.f.password.value)
+    this.accountService.register(this.form.value)
       .pipe(first())
       .subscribe({
         next: () => {
-          const returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
-          this.router.navigateByUrl(returnUrl);
+          this.alertService.success('Registration successful', { keepAfterRouteChange: true });
+          this.router.navigate(['../login'], { relativeTo: this.route });
         },
         error: error => {
           this.alertService.error(error);
@@ -56,4 +61,5 @@ export class LoginPageComponent implements OnInit {
         }
       });
   }
+
 }

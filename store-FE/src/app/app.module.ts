@@ -13,6 +13,7 @@ import { UsersListComponent } from './components/users-list/users-list.component
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './utilities/jwt-interceptor/jwt.interceptor';
 import { ErrorInterceptor } from './utilities/error-interceptor/error.interceptor';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ErrorInterceptor } from './utilities/error-interceptor/error.intercepto
     AlertComponent,
     SavePageComponent,
     LayoutComponent,
-    UsersListComponent
+    UsersListComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
