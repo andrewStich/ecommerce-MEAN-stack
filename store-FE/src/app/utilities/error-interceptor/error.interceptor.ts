@@ -10,7 +10,7 @@ import { AccountService } from 'src/app/services/account/account.service';
 import { catchError } from 'rxjs/operators';
 
 @Injectable()
-export class ErrorInterceptorInterceptor implements HttpInterceptor {
+export class ErrorInterceptor implements HttpInterceptor {
 
   constructor(private accountService: AccountService) { }
 

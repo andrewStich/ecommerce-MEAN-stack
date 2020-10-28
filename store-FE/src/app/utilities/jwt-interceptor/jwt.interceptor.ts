@@ -10,7 +10,7 @@ import { AccountService } from 'src/app/services/account/account.service';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
-export class JwtInterceptorInterceptor implements HttpInterceptor {
+export class JwtInterceptor implements HttpInterceptor {
 
   constructor(private accountService: AccountService) { }
 
