@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UsersRoutingModule } from './users-routing.module';
 import { SavePageComponent } from '../components/save-page/save-page.component';
-import { LayoutComponent } from '../components/layout/layout.component';
 import { UsersListComponent } from '../components/users-list/users-list.component';
+import { UserLayoutComponent } from '../components/user-layout/user-layout.component';
 
 @NgModule({
   imports: [
@@ -13,7 +13,7 @@ import { UsersListComponent } from '../components/users-list/users-list.componen
     UsersRoutingModule
   ],
   declarations: [
-    LayoutComponent,
+    UserLayoutComponent,
     UsersListComponent,
     SavePageComponent
   ],

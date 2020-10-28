@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LayoutComponent } from '../components/layout/layout.component';
 import { SavePageComponent } from '../components/save-page/save-page.component';
+import { UserLayoutComponent } from '../components/user-layout/user-layout.component';
 import { UsersListComponent } from '../components/users-list/users-list.component';
 
 const routes: Routes = [
   {
-    path: '', component: LayoutComponent,
+    path: '', component: UserLayoutComponent,
     children: [
       { path: '', component: UsersListComponent },
       { path: 'add', component: SavePageComponent },

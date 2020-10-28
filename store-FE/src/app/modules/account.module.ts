@@ -4,7 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AccountRoutingModule } from './account-routing.module';
 import { LoginPageComponent } from '../components/login-page/login-page.component';
-import { LayoutComponent } from '../components/layout/layout.component';
+import { RegistrationPageComponent } from '../components/registration-page/registration-page.component';
+import { AccountLayoutComponent } from '../components/account-layout/account-layout.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { LayoutComponent } from '../components/layout/layout.component';
     AccountRoutingModule
   ],
   declarations: [
-    LayoutComponent,
+    AccountLayoutComponent,
     LoginPageComponent,
     RegistrationPageComponent
   ]

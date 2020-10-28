@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent } from '../components/login-page/login-page.component';
 import { SavePageComponent } from '../components/save-page/save-page.component';
-import { LayoutComponent } from '../components/layout/layout.component';
+import { AccountLayoutComponent } from '../components/account-layout/account-layout.component';
 
 const routes: Routes = [
   {
-    path: '', component: LayoutComponent,
+    path: '', component: AccountLayoutComponent,
     children: [
       { path: 'login', component: LoginPageComponent },
       { path: 'register', component: SavePageComponent }
